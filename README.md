@@ -33,15 +33,23 @@ The model processes images containing multiple digits (classes 0-9) and predicts
 ##  Usage
 
 ### 1. Prerequisites
-Ensure you have the necessary libraries installed (`torch`, `torchvision`, `numpy`, `scikit-learn`, `matplotlib`) and that the dataset files are correctly placed in a `dataset/` subdirectory.
+Ensure you have the necessary libraries installed (`torch`, `torchvision`, `numpy`, `scikit-learn`, `matplotlib`)
 
-### 2. Training & Evaluation
+### 2. Download the Dataset
+The `.npy` dataset and ground truth masks are too large to be hosted directly in this repository. You will need to download them from Kaggle before running the model:
+
+1. Download the dataset from Kaggle: [Multi-MNIST (M2NIST) Dataset](https://www.kaggle.com/datasets/farhanhubble/multimnistm2nist)
+2. Create a folder named `dataset/` in the root directory of this repository.
+3. Place the downloaded files (`imagedata.npy` and `segmented.npy`) inside the `dataset/` folder.
+4. *Note: The script expects the ground truth file to be named `groundtruth.npy`. You can either rename `segmented.npy` to `groundtruth.npy`, or update the file path in `m2nist_grid_detector.py`.*
+
+### 3. Training & Evaluation
 To train the model from scratch and automatically launch the evaluation dashboard, run:
 ```bash
 python m2nist_grid_detector.py
 ```
 
-### 3. Interactive Viewer Controls
+### 4. Interactive Viewer Controls
 * Once the specified training epochs are complete, the interactive viewer will launch automatically.
 * Right Arrow / Down Arrow: Advance to the next image.
 * Left Arrow / Up Arrow: Return to the previous image.
